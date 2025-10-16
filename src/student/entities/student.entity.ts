@@ -2,6 +2,7 @@ import {Column, Entity, JoinColumn, OneToOne} from "typeorm";
 import {User} from "../../user/entities/user.entity";
 import {DbEntity} from "../../utils/abstract/database/db-entity";
 import {IEntity} from "../../utils/abstract/database/i-enity";
+import {StudentTrackEnum} from "../enums/student-track.enum";
 
 @Entity("tbl_students")
 export class Student extends DbEntity implements IEntity {
@@ -26,4 +27,6 @@ export class Student extends DbEntity implements IEntity {
     skills: string;
     @Column({ type: 'varchar', nullable: true })
     linkedin: string
+    @Column({ type: 'varchar', enum: StudentTrackEnum, nullable: true })
+    track: StudentTrackEnum;
 }

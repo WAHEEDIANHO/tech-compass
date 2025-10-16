@@ -1,6 +1,7 @@
 import {Column} from "typeorm";
 import {ApiProperty} from "@nestjs/swagger";
-import {IsEmail, IsOptional, IsString, IsUrl} from "class-validator";
+import {IsEmail, IsEnum, IsOptional, IsString, IsUrl} from "class-validator";
+import {StudentTrackEnum} from "../enums/student-track.enum";
 
 export class CreateStudentDto {
 
@@ -33,4 +34,8 @@ export class CreateStudentDto {
     @IsUrl()
     @IsOptional()
     linkedinProfile: string
+    @ApiProperty()
+    @IsOptional()
+    @IsEnum(StudentTrackEnum, { message: `track must be one of the following values: ${Object.values(StudentTrackEnum).join(', ')}` })  
+    track: string
 }
