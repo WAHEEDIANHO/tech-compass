@@ -24,14 +24,12 @@ export class CreateStudentDto {
     @IsString()
     institution: string;
     @ApiProperty()
-    @IsUrl()
     @IsOptional()
     resumeUrl: string;
     @ApiProperty()
     @IsString()
     skills: string;
-    @ApiProperty()
-    @IsUrl()
+    @ApiProperty({  })
     @IsOptional()
     linkedinProfile: string
     @ApiProperty()
